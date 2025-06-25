@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-poltawski: 'Poltawski Nowy', serif;
+}
+
+@theme inline {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@theme {
+  --color-bg-primary: #F7F3E8;
+  --color-btn-bg: #AF8B18;
+  --color-text-title: #333333;
+  --color-text-light: #F7F7F7;
+  --color-text-muted: #5C5C5C;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-poltawski {
+  font-family: var(--font-poltawski);
+}
+
+.scrl-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrl-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
