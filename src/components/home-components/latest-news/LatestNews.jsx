@@ -38,8 +38,8 @@ const LatestNews = () => {
                         {newsItems.map((item) => (
                             <SwiperSlide key={item._id}>
                                 <div className='bg-white rounded-2xl overflow-hidden p-4'>
-                                    <div className="bg-white rounded-xl overflow-hidden flex flex-col gap-3 md:gap-0 items-center md:flex-row h-full">
-                                        <Image src={item?.image} alt={item?.title} width={120} height={120} className="md:w-30 w-full h-30 object-cover rounded-xl" />
+                                    <div className="bg-white rounded-xl overflow-hidden flex flex-col gap-3 lg:gap-0 items-center lg:flex-row h-full">
+                                        <Image src={item?.image} alt={item?.title} width={120} height={120} className="lg:w-30 w-full h-30 object-cover rounded-xl" />
                                         <div className="px-6 flex flex-col flex-1">
                                             <div>
                                                 <p className="text-xs text-gray-500 mb-1">{item?.date}</p>
@@ -63,19 +63,19 @@ const LatestNews = () => {
                     </div>
 
                     {/* Custom Navigation Arrows with Tailwind CSS */}
-                    <div className="absolute top-1/2 left-0 md:-translate-y-1/2 flex items-center justify-center
+                    <div className="absolute top-1/2 md:top-1/3 -left-2 -translate-y-1/2 flex items-center justify-center
                                     w-10 h-10 rounded-full cursor-pointer z-10
                                      transition-colors
                                     custom-prev-button"
                     >
-                        <ChevronLeft className="w-6 h-6 text-btn-bg" />
+                        <ChevronLeft className="w-8 h-8 text-btn-bg" />
                     </div>
-                    <div className="absolute top-1/2 right-0 md:-translate-y-1/2 flex items-center justify-center
+                    <div className="absolute top-1/2 md:top-1/3 -right-0 -translate-y-1/2 flex items-center justify-center
                                     w-10 h-10 rounded-full cursor-pointer z-10
                                     transition-colors
                                     custom-next-button"
                     >
-                        <ChevronRight className="w-6 h-6 text-btn-bg" />
+                        <ChevronRight className="w-8 h-8 text-btn-bg" />
                     </div>
                 </div>
             </PageLayout>

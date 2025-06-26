@@ -1,3 +1,4 @@
+// News Data
 export const newsItems = [
     {
         _id: "n1",
@@ -35,3 +36,25 @@ export const newsItems = [
         image: "/assets/latest-news-02.png",
     },
 ];
+
+// Services Data
+export const servicesItems = [
+  {
+    "_id": "service1",
+    "title": "Local Expertise, Global Standards",
+    "description": "We provide legal solutions grounded in Qatari law and shaped by international standards. Our approach ensures clarity and confidence for both local and multinational clients.",
+    "image": "/assets/service-01.jpg"
+  },
+  {
+    "_id": "service2",
+    "title": "Industry-Focused Solutions",
+    "description": "With deep insight into sectors like construction, energy, finance, and technology, we tailor our legal strategies to meet the specific challenges of each industry.",
+    "image": "/assets/service-02.png"
+  },
+  {
+    "_id": "service3",
+    "title": "Trusted Legal Representation",
+    "description": "From corporate advisory to dispute resolution and compliance, we deliver effective legal support focused on results, professionalism, and long-term client value.",
+    "image": "/assets/service-03.jpg"
+  }
+]
