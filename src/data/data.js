@@ -283,3 +283,78 @@ export const teamMembersData = [
 ];
 
 
+// Sectors Data 
+export const sectorsData = [
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b1",
+    "title": "Sports & Entertainment",
+    "description": "Qatar's sports and entertainment sectors are set for significant growth as part of economic diversification. We support organizations through key milestones, including incorporation, asset transactions, employment matters, sponsorships, contracts, and dispute resolution.",
+    "imageUrl": "/assets/sports_entertainment.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b2",
+    "title": "Telecoms, Media & Technology",
+    "description": "We provide comprehensive TMT support, combining local legal expertise, regional reach, and bilingual capability to meet the evolving needs of companies in the digital and broadband sector.",
+    "imageUrl": "/assets/telecoms_media_technology.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b3",
+    "title": "Transport & Logistics",
+    "description": "Our senior attorneys have prior ties to the Qatar Government and judiciary, making them well placed to counsel and support clients with the regulatory requirements and complex dispute matters which may arise in these two vital sectors.",
+    "imageUrl": "/assets/transport_logistics.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b4",
+    "title": "Employment",
+    "description": "From structuring compensation and incentive packages to settling employment disputes, we provide practical, cost-effective advice for navigating Qatar's employment environment.",
+    "imageUrl": "/assets/employment.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b5",
+    "title": "Energy & Natural Resources",
+    "description": "With experience that spans virtually every sector of the industry, we truly understand the energy and natural resources market in Qatar. We can help you make sense of the complex regulations governing the industry, advise you on corporate issues, and assist with transactions as your business grows.",
+    "imageUrl": "/assets/energy_natural_resources.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b6",
+    "title": "Healthcare",
+    "description": "We provide counsel on local healthcare business transactions, corporate governance and regulatory compliance.",
+    "imageUrl": "/assets/healthcare.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b7",
+    "title": "Banking & Insurance",
+    "description": "International and domestic lenders trust Al-Ansari & Associates in complex financing transactions. With global partners across Europe, Asia, and North America, we offer the expertise and reach needed. We handle banking, finance, and insurance matters efficiently within Qatar.",
+    "imageUrl": "/assets/banking_insurance.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b8",
+    "title": "Construction & Infrastructure",
+    "description": "Al-Ansari & Associates advises international and domestic lenders on complex financing transactions. With global partnerships, we offer the expertise and reach to support banking, finance, and insurance matters in Qatar.",
+    "imageUrl": "/assets/construction_infrastructure.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0b9",
+    "title": "Education",
+    "description": "We have advised and provided counsel to major educational institutions in Qatar on a wide range of issues including restructuring, licensing, regulatory & compliance matters and contentious employment matters.",
+    "imageUrl": "/assets/education.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0c0",
+    "title": "Hospitality & Leisure",
+    "description": "Our hospitality & leisure practice is growing, with both local & international hospitality clients seeking our advice and representation. We can help you make sense of the regulatory framework governing the sector, advise you on corporate issues, and assist with transactions and challenges.",
+    "imageUrl": "/assets/hospitality_leisure.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0c1",
+    "title": "Intellectual Property & Copyright",
+    "description": "Clients rely on us to protect their intellectual property, including copyrights, trademarks, and patents. We assist with registration, licensing, and enforcement to safeguard your rights and brand.",
+    "imageUrl": "/assets/intellectual_property.jpg"
+  },
+  {
+    "_id": "667cc467a3d2b2e8f1c9d0c2",
+    "title": "Real Estate & Property",
+    "description": "We understand the opportunities, strategic drivers and challenges in the regional real estate and property market. We help our clients to structure comprehensive, cost-effective deals for all of their construction and real estate projects.",
+    "imageUrl": "/assets/real_estate.jpg"
+  }
+]
