@@ -1,10 +1,13 @@
-import React from 'react';
+"use client"
+import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
 
 const page = () => {
     return (
         <div>
-            <h1 className="text-2xl font-bold">Insights</h1>
-            <p className="mt-4">Discover our latest insights and research.</p>
+            <SimpleHero
+                title="Insights"
+                breadcrumbs={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }]}
+            />
         </div>
     );
 };

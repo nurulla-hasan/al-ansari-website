@@ -1,0 +1,285 @@
+"use client"
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Share2 } from "lucide-react"
+import PageLayout from "@/components/layout/PageLayout"
+import SimpleHero from "@/components/shared/simple-hero/SimpleHero"
+import Link from "next/link"
+import { partnersData } from '@/data/data'; 
+
+const PeopleDetailsPage = () => { 
+    const searchParams = useSearchParams();
+    const id = searchParams.get("id"); 
+    const [person, setPerson] = useState(null);
+    console.log(person);
+
+    useEffect(() => {
+        if (id) {
+            const foundPerson = partnersData.find(p => p._id === id);
+            setPerson(foundPerson);
+        }
+    }, [id]);
+
+    const [activeTab, setActiveTab] = useState("Profile")
+    const tabs = ["Profile", "Experience", "Affiliation"]
+
+    const handleShare = () => {
+        if (navigator.share && person) {
+            navigator.share({
+                title: person.name,
+                text: `${person.name} - ${person.role}`,
+                url: window.location.href,
+            })
+        } else if (navigator.clipboard && person) {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    }
+
+    const getSocialIcon = (platform) => {
+        switch (platform) {
+            case 'linkedin':
+                return <Linkedin className="w-4 h-4 text-btn-bg" />;
+            case 'facebook':
+                return <Facebook className="w-4 h-4 text-btn-bg" />;
+            case 'twitter':
+                return <Twitter className="w-4 h-4 text-btn-bg" />;
+            case 'instagram':
+                return <Instagram className="w-4 h-4 text-btn-bg" />;
+            default:
+                return null;
+        }
+    };
+
+
+    if (!person) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <>
+            <SimpleHero
+                title="People"
+                breadcrumbs={[{ name: "Home", href: "/" }, { name: "People", href: "/people" }, { name: "People Details", href: `/people/details?id=${person._id}` }]}
+            />
+            <PageLayout>
+                {/* Top Section */}
+                <div className="bg-bg-primary p-8 rounded-xl mb-8">
+                    <div className="relative flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+                        <div className="relative w-48 h-60 sm:w-64 sm:h-80 md:w-80 md:h-96 flex-shrink-0 rounded-2xl overflow-hidden bg-gray-200 -mt-10 sm:-mt-16 md:-mt-20">
+                            <Image
+                                src={person.profileImage || "/placeholder.svg"}
+                                alt={person.name}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                            />
+                        </div>
+
+                        <div className="flex-1 mt-6 md:mt-0 space-y-6">
+                            <div>
+                                <h1 className="text-2xl sm:text-4xl font-bold text-text-title mb-2">{person.name}</h1>
+                                <p className="text-base sm:text-lg text-text-muted">{person.role}</p>
+                            </div>
+
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Contact</h3>
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-3">
+                                        <Mail className="w-5 h-5 text-text-muted" />
+                                        <span className="text-sm text-text-muted">Email:</span>
+                                        <span className="text-sm text-text-title">{person.email}</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <Phone className="w-5 h-5 text-text-muted" />
+                                        <span className="text-sm text-text-muted">Phone Number:</span>
+                                        <span className="text-sm text-text-title">{person.phone}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Follow</h3>
+                                <div className="flex gap-3">
+                                    {person.socialMedia && person.socialMedia.map((social, index) => (
+                                        <Link
+                                            key={social.platform || index}
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-8 h-8 border border-btn-bg rounded-full flex items-center justify-center hover:bg-btn-bg/40 transition-colors"
+                                        >
+                                            {getSocialIcon(social.platform)}
+                                        </Link>
+                                    ))}
+                                    <button
+                                        onClick={handleShare}
+                                        className="w-8 h-8 border border-btn-bg rounded-full flex items-center justify-center hover:bg-btn-bg/40 transition-colors cursor-pointer"
+                                    >
+                                        <Share2 className="w-4 h-4 text-btn-bg" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Section */}
+                {/* Tab Navigation */}
+                <div className="flex border-gray-200">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`rounded-t-sm py-2 px-8 font-medium transition-colors cursor-pointer text-sm ${activeTab === tab
+                                    ? "text-yellow-600 bg-bg-primary"
+                                    : "text-text-muted hover:text-text-title"
+                                }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
+
+
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    {/* Tab Content */}
+                    <div className="lg:col-span-3 space-y-8 border-t border-gray-200 pt-6">
+                        {/* Main Content */}
+                        <div className="lg:col-span-2">
+                            {activeTab === "Profile" && (
+                                <div className="space-y-6">
+                                    <p className="text-gray-700 leading-relaxed">{person.summary}</p>
+                                    {person.professionalExperience && person.professionalExperience.length > 0 && (
+                                        <div className="space-y-2">
+                                            <h4 className="text-md font-semibold text-text-title mt-4 mb-2">Professional Highlights</h4>
+                                            <ul className="list-disc list-inside text-gray-700">
+                                                {person.professionalExperience.map((exp, index) => (
+                                                    <li key={`prof-exp-${index}`} className="leading-relaxed">{exp}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                     {person.awards && person.awards.length > 0 && (
+                                        <div className="mt-6">
+                                            <h4 className="text-md font-semibold text-text-title mb-2">Awards & Recognition</h4>
+                                            <ul className="list-disc list-inside text-gray-700 space-y-1">
+                                                {person.awards.map((award, index) => (
+                                                    <li key={`profile-award-${index}`} className="text-sm">{award}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {person.practiceAreas && person.practiceAreas.length > 0 && (
+                                        <div className="mt-6">
+                                            <h4 className="text-md font-semibold text-text-title mb-2">Practice Areas</h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {person.practiceAreas.map((area, index) => (
+                                                    <span key={`profile-area-${index}`} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
+                                                        {area}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {activeTab === "Experience" && (
+                                <div className="space-y-4">
+                                    <h3 className="text-xl font-semibold text-text-title">Professional Experience</h3>
+                                    {person.professionalExperience && person.professionalExperience.length > 0 ? (
+                                        <ul className="list-disc list-inside text-gray-700 space-y-2">
+                                            {person.professionalExperience.map((exp, index) => (
+                                                <li key={`exp-${index}`} className="leading-relaxed">{exp}</li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <p className="text-gray-700">No professional experience details available.</p>
+                                    )}
+                                </div>
+                            )}
+                            {activeTab === "Affiliation" && (
+                                <div className="space-y-4">
+                                    <h3 className="text-xl font-semibold text-text-title">Professional Affiliations</h3>
+                                    {person.affiliations && person.affiliations.length > 0 ? (
+                                        <ul className="list-disc list-inside text-gray-700 space-y-2">
+                                            {person.affiliations.map((aff, index) => (
+                                                <li key={`aff-${index}`} className="leading-relaxed">{aff}</li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <p className="text-gray-700">Information about professional affiliations and memberships is not available yet.</p>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    {/* Sidebar */}
+                    <div className="md:-mt-10 col-span-2 space-y-8 border border-gray-200 p-4 lg:p-8 rounded-xl">
+                        {/* Education */}
+                        {person.education && person.education.length > 0 && (
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Education</h3>
+                                <div className="space-y-2">
+                                    {person.education.map((edu, index) => (
+                                        <p key={`edu-${index}`} className="text-sm text-gray-700">
+                                            {edu}
+                                        </p>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Practice Areas / Specialties */}
+                        {person.practiceAreas && person.practiceAreas.length > 0 && (
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Practice Areas</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {person.practiceAreas.map((area, index) => (
+                                        <span key={`sidebar-area-${index}`} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
+                                            {area}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Industry Focus */}
+                        {person.industryFocus && person.industryFocus.length > 0 && (
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Industry Focus</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {person.industryFocus.map((focus, index) => (
+                                        <span key={`sidebar-focus-${index}`} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
+                                            {focus}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Bar Admission */}
+                        {person.barAdmission && person.barAdmission.length > 0 && (
+                            <div>
+                                <h3 className="text-lg font-semibold text-text-title mb-4">Bar Admission</h3>
+                                <div className="space-y-2">
+                                    {person.barAdmission.map((bar, index) => (
+                                        <p key={`bar-${index}`} className="text-sm text-gray-700">
+                                            {bar}
+                                        </p>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </PageLayout>
+        </>
+    )
+}
+
+export default PeopleDetailsPage;

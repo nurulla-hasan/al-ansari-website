@@ -1,11 +1,25 @@
-import React from 'react';
+"use client"
+import PageLayout from '@/components/layout/PageLayout';
+import Partners from '@/components/people-components/Partners';
+import Teams from '@/components/people-components/Teams';
+import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
+import { partnersData, teamMembersData } from '@/data/data';
+
 
 const page = () => {
     return (
         <div>
-            <h1 className="text-2xl font-bold">About Us</h1>
-            <p className="mt-4">Learn more about our mission, vision, and values.</p>
-            <p className="mt-2">We are committed to providing the best services to our clients and making a positive impact in the community.</p>
+            <SimpleHero
+                title="People"
+                breadcrumbs={[{ name: "Home", href: "/" }, { name: "People", href: "/people" }]}
+            />
+
+            <PageLayout>
+                <div className='space-y-18'>
+                    <Partners title="Partners" data={partnersData} />
+                    <Teams title="Our Team" data={teamMembersData} />
+                </div>
+            </PageLayout>
         </div>
     );
 };
