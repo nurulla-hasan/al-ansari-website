@@ -33,3 +33,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.min-h-minus-header { 
+  min-height: calc(100vh - 88px);
+}

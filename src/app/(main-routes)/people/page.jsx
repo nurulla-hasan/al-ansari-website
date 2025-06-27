@@ -8,7 +8,7 @@ import { partnersData, teamMembersData } from '@/data/data';
 
 const page = () => {
     return (
-        <div>
+        <div className='min-h-minus-header'>
             <SimpleHero
                 title="People"
                 breadcrumbs={[{ name: "Home", href: "/" }, { name: "People", href: "/people" }]}

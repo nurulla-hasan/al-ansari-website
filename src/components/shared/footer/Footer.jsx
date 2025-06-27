@@ -66,7 +66,7 @@ const Footer = () => {
                             <div>
                                 <h3 className="text-2xl lg:text-4xl font-semibold text-white font-poltawski">Subscribe to our Newsletter</h3>
                             </div>
-                            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto px-4 md:px-0">
                                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-4">
                                     <input
                                         {...register("email", { required: true })}

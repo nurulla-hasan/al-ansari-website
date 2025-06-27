@@ -28,7 +28,7 @@ const LatestNews = () => {
                         navigation={{
                             prevEl: '.custom-prev-button',
                             nextEl: '.custom-next-button',
-                        }}
+                        }} 
                         breakpoints={{
                             640: { slidesPerView: 1.2 },
                             768: { slidesPerView: 2 },
@@ -45,7 +45,7 @@ const LatestNews = () => {
                                                 <p className="text-xs text-gray-500 mb-1">{item?.date}</p>
                                                 <h3 className="text-sm font-semibold text-btn-bg leading-tight">{item?.title}</h3>
                                             </div>
-                                            <p className="text-gray-700 mt-4 text-xs line-clamp-2">
+                                            <p className="text-gray-700 mt-4 text-xs">
                                                 {item?.summary.slice(0, 70)} ...{' '}
                                                 {/* Tooltip for full summary */}
                                                 <span title={item.summary} className='cursor-pointer text-btn-bg'>see more</span>

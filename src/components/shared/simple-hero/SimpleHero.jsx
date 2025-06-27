@@ -3,7 +3,8 @@ import { ChevronRight } from "lucide-react"
 
 const SimpleHero = ({
   title = "Page Title",
-  breadcrumbs = [{ name: "Home", href: "/" }]
+  breadcrumbs = [{ name: "Home", href: "/" }],
+  children
 }) => {
   return (
     <section className="relative h-30 sm:h-60 flex items-center">
@@ -18,7 +19,7 @@ const SimpleHero = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container 2xl:w-5/6 mx-auto px-5 md:px-0">
+      <div className="relative flex flex-col md:flex-row items-center justify-between z-10 container 2xl:w-5/6 mx-auto px-5 md:px-0">
         <div className="max-w-4xl">
           {/* Breadcrumb Navigation */}
           <nav className="mb-2 md:mb-4" aria-label="Breadcrumb">
@@ -40,6 +41,9 @@ const SimpleHero = ({
 
           {/* Page Title */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{title}</h1>
+        </div>
+        <div className="flex gap-4 mt-4 md:mt-0">
+          {children}
         </div>
       </div>
     </section>

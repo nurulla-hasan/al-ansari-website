@@ -12,7 +12,7 @@ const Partners = ({ title, data }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {data.map((partner) => (
                     <article key={partner?._id} className="bg-white rounded-lg overflow-hidden">
-                        <Link href={`/people/details/partner-details/?id=${partner?._id}`} className="block">
+                        <Link href={`/people/partner-details/?id=${partner?._id}`} className="block">
                             <div className="relative w-full aspect-[5/6] rounded-2xl overflow-hidden bg-gray-200">
                                 <Image
                                     src={partner?.profileImage || "/placeholder.svg"}
