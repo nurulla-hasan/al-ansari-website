@@ -19,7 +19,7 @@ export default function UpdateDetails({ params }) {
     return (
         <div>
             <SimpleHero
-                title="Insights"
+                title={item?.title}
                 breadcrumbs={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }, { name: "Newsletters", href: "/insights/newsletters" }, { name: "Details", href: `/insights/newsletters/${item._id}` }]}
             />
             <PageLayout>

@@ -1,17 +1,20 @@
-import Image from "next/image";
-import { eventsData } from "@/data/data";
-import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
+
 import PageLayout from "@/components/layout/PageLayout";
+import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
+import { csrData } from "@/data/data";
+import Image from "next/image";
 
-export const UpdateDetails =({ params })=> {
+const CsrDetails = ({ params }) => {
+
     const { id } = params;
+    console.log(id);
 
-    const item = eventsData.find((item) => item._id === id);
+    const item = csrData.find((item) => item.id === id);
 
     if (!item) {
         return (
             <div className="min-h-minus-header flex items-center justify-center">
-                <p className="text-lg text-red-500">Update not found!</p>
+                <p className="text-lg text-red-500">Csr not found!</p>
             </div>
         );
     }
@@ -20,18 +23,22 @@ export const UpdateDetails =({ params })=> {
         <div>
             <SimpleHero
                 title={item?.title}
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }, { name: "Events", href: "/insights/events" }, { name: "Details", href: `/insights/events/${item._id}` }]}
+                breadcrumbs={[
+                    { name: "Home", href: "/" },
+                    { name: "About", href: "/about" },
+                    { name: "CSR", href: "/about/csr" },
+                    { name: "Details", href: `/about/csr/${item?.id}` }
+                ]}
             />
-             <PageLayout>
-                <p className="text-lg md:text-2xl text-text-muted mb-2 md:mb-4">{item.date}</p>
+            <PageLayout>
                 <h1 className="font-poltawski text-2xl md:text-5xl font-bold mb-8 md:mb-12 text-text-title">
-                    {item.title}
+                    {item?.title}
                 </h1>
 
                 <div className="relative w-full aspect-[16/5] rounded-xl overflow-hidden mb-8">
                     <Image
-                        src={item.imageUrl}
-                        alt={item.title}
+                        src={item?.imageSrc}
+                        alt={item?.title}
                         fill
                         className="object-cover"
                         priority
@@ -39,12 +46,11 @@ export const UpdateDetails =({ params })=> {
                 </div>
 
                 <p className="md:text-xl text-sm px-2 text-gray-700 leading-relaxed">
-                    {item.summary}
+                    {item?.description}
                 </p>
             </PageLayout>
         </div>
     );
-}
+};
 
-
-export default UpdateDetails
+export default CsrDetails;

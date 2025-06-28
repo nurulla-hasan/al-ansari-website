@@ -30,7 +30,7 @@ const LegalPractice = () => {
                     </p>
 
                     {/* Geometric pattern in the background */}
-                    <div className="absolute -right-20 md:-right-40 lg:-right-50 inset-y-0 w-full hidden lg:block -z-10">
+                    <div className="absolute lg:-right-50 inset-y-0 w-full hidden lg:block -z-50">
                          <SoftPatternColumns/>
                     </div>
                 </div>

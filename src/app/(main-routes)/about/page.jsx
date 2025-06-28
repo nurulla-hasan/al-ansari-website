@@ -4,7 +4,6 @@ import AboutPageButtons from '@/components/about-components/AboutPageButtons';
 import ClientFocus from '@/components/about-components/ClientFocus';
 import HighestLevel from '@/components/about-components/HighestLevel';
 import LegalPractice from '@/components/about-components/legalPractice';
-import PageLayout from '@/components/layout/PageLayout';
 import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
 
 const page = () => {

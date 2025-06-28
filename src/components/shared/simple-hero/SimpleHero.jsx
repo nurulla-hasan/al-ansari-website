@@ -19,8 +19,8 @@ const SimpleHero = ({
       </div>
 
       {/* Content */}
-      <div className="relative flex flex-col md:flex-row items-center justify-between z-10 container 2xl:w-5/6 mx-auto px-5 md:px-0">
-        <div className="max-w-4xl">
+      <div className="relative flex gap-5 items-center justify-between z-10 container 2xl:w-5/6 mx-auto px-3 md:px-0">
+        <div className="md:max-w-4xl">
           {/* Breadcrumb Navigation */}
           <nav className="mb-2 md:mb-4" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-white text-sm">
@@ -40,9 +40,9 @@ const SimpleHero = ({
           </nav>
 
           {/* Page Title */}
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{title}</h1>
+          <h1 className="text-sm sm:text-3xl lg:text-4xl font-bold text-white">{title}</h1>
         </div>
-        <div className="flex gap-4 mt-4 md:mt-0">
+        <div>
           {children}
         </div>
       </div>

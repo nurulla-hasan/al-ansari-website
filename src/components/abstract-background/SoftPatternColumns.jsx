@@ -2,7 +2,7 @@
 
 const SoftPatternColumns = () => {
     return (
-        <div className='absolute inset-0 z-0 pointer-events-none'>
+        <div className='absolute inset-0 pointer-events-none'>
             <div className="absolute top-1/2 -translate-y-1/2 left-0 flex px-28">
                 <div className="bg-[#e6dbb71e] w-68 h-68 rotate-45" />
                 <div className="bg-[#E6DBB74D] w-68 h-68 rotate-45 -ml-28" />

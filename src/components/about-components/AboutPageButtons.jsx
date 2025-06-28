@@ -18,7 +18,7 @@ const AboutPageButtons = () => {
     }, []);
 
     const buttonClass = (buttonName) => `
-        px-4 py-2 rounded-md font-medium text-sm transition-colors duration-200 cursor-pointer backdrop-blur-sm
+        md:px-4 md:py-2 px-2 py-1 rounded-md font-medium md:text-sm text-xs transition-colors duration-200 cursor-pointer backdrop-blur-sm
         ${activeButton === buttonName
             ? "bg-btn-bg text-white"
             : "bg-transparent text-btn-bg border border-btn-bg"
@@ -26,7 +26,7 @@ const AboutPageButtons = () => {
     `;
 
     return (
-        <div className="flex gap-4 mt-4 md:mt-0">
+        <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
             <Link
                 href="/about"
                 className={buttonClass("About Us")}
@@ -36,7 +36,7 @@ const AboutPageButtons = () => {
             </Link>
 
             <Link
-                href="/awards"
+                href="/about/awards"
                 className={buttonClass("Awards")}
                 onClick={() => setActiveButton("Awards")}
             >
@@ -44,7 +44,7 @@ const AboutPageButtons = () => {
             </Link>
 
             <Link
-                href="/csr"
+                href="/about/csr"
                 className={buttonClass("CSR")}
                 onClick={() => setActiveButton("CSR")}
             >
