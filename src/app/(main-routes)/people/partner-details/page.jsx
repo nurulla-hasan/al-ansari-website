@@ -1,16 +1,17 @@
 "use client"
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react" // Import Suspense
 import Image from "next/image"
 import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Share2 } from "lucide-react"
 import PageLayout from "@/components/layout/PageLayout"
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero"
 import Link from "next/link"
-import { partnersData } from '@/data/data'; 
+import { partnersData } from '@/data/data';
 
-const PeopleDetailsPage = () => { 
+// This component will contain the client-side logic and useSearchParams
+const PartnerDetailsContent = () => {
     const searchParams = useSearchParams();
-    const id = searchParams.get("id"); 
+    const id = searchParams.get("id");
     const [person, setPerson] = useState(null);
     console.log(person);
 
@@ -57,7 +58,8 @@ const PeopleDetailsPage = () => {
 
 
     if (!person) {
-        return <div>Loading...</div>;
+        // You can return a more specific loading state here
+        return <div>Loading partner details...</div>;
     }
 
     return (
@@ -136,8 +138,8 @@ const PeopleDetailsPage = () => {
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`rounded-t-sm py-2 px-8 font-medium transition-colors cursor-pointer text-sm ${activeTab === tab
-                                    ? "text-yellow-600 bg-bg-primary"
-                                    : "text-text-muted hover:text-text-title"
+                                ? "text-yellow-600 bg-bg-primary"
+                                : "text-text-muted hover:text-text-title"
                                 }`}
                         >
                             {tab}
@@ -164,7 +166,7 @@ const PeopleDetailsPage = () => {
                                             </ul>
                                         </div>
                                     )}
-                                     {person.awards && person.awards.length > 0 && (
+                                    {person.awards && person.awards.length > 0 && (
                                         <div className="mt-6">
                                             <h4 className="text-md font-semibold text-text-title mb-2">Awards & Recognition</h4>
                                             <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -282,4 +284,12 @@ const PeopleDetailsPage = () => {
     )
 }
 
-export default PeopleDetailsPage;
+const PartnarDetailsPage = () => {
+    return (
+        <Suspense fallback={<div>Loading partner details...</div>}>
+            <PartnerDetailsContent />
+        </Suspense>
+    );
+}
+
+export default PartnarDetailsPage;
