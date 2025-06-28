@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form"
 import { useState } from "react"
-import { ChevronDown, X } from "lucide-react"
+import {  X } from "lucide-react"
 import InputField from "../helper/input-helper/InputField"
 import SelectField from "../helper/select-helper/SelectField"
 import PageLayout from "../layout/PageLayout"
@@ -64,7 +64,7 @@ const ApplyJob = () => {
     }
 
     return (
-        <div className="bg-stone-100 min-h-screen py-16 px-4">
+        <div className="bg-bg-primary min-h-screen py-16 px-4">
             <PageLayout>
                 {/* Header */}
                 <div className="mb-8">
@@ -153,7 +153,7 @@ const ApplyJob = () => {
                                                 type="file"
                                                 accept=".pdf,.doc,.docx"
                                                 onChange={handleFileUpload}
-                                                className="w-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-btn-bg px-2 py-1 rounded-sm text-xs placeholder:text-xs outline-none transition-all duration-300 file:rounded-sm file:border-0 file:bg-gray-100 file:text-gray-600 file:text-xs file:py-1 file:px-3"
+                                                className="w-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-btn-bg px-2 py-1 rounded-sm text-xs placeholder:text-xs outline-none transition-all duration-300 file:rounded-sm file:border-0 file:bg-btn-bg/30 file:text-gray-800 file:text-xs file:py-1 file:px-3"
                                             />
                                         )}
                                     </div>
