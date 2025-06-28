@@ -60,8 +60,8 @@ const Footer = () => {
 
             <div className="relative z-10">
                 {/* Newsletter Section */}
-                <div className="py-8 md:py-16 container 2xl:w-5/6 mx-auto">
-                    <div className="container mx-auto ">
+                <div className="py-8 md:py-16 max-w-7xl mx-auto">
+                    <div className="max-w-7xl mx-auto ">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                             <div>
                                 <h3 className="text-2xl lg:text-4xl font-semibold text-white font-poltawski">Subscribe to our Newsletter</h3>
@@ -88,7 +88,7 @@ const Footer = () => {
 
                 <div className="border-b border-gray-700"></div>
                 {/* Main Footer Content */}
-                <div className="container 2xl:w-5/6 mx-auto py-10 md:py-20">
+                <div className="max-w-7xl mx-auto py-10 md:py-20">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-18 ">
                         {/* Logo and Social Media */}
                         <div className="flex flex-col justify-center items-start gap-6 px-5 md:px-0">
@@ -180,8 +180,8 @@ const Footer = () => {
 
                 <div className="border-t border-gray-700"></div>
                 {/* Bottom Footer */}
-                <div className="2xl:w-5/6 mx-auto px-2 md:px-0">
-                    <div className="container mx-auto py-5 md:py-10">
+                <div className="max-w-7xl mx-auto px-2 md:px-0">
+                    <div className="py-5 md:py-10">
                         <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
                             <div className="flex flex-wrap gap-6">
                                 {legalLinks.map((link) => (

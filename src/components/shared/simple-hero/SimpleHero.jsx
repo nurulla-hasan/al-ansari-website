@@ -19,7 +19,7 @@ const SimpleHero = ({
       </div>
 
       {/* Content */}
-      <div className="relative flex gap-5 items-center justify-between z-10 container 2xl:w-5/6 mx-auto px-3 md:px-0">
+      <div className="relative flex gap-5 items-center justify-between z-10 w-7xl mx-auto px-3 md:px-0">
         <div className="md:max-w-4xl">
           {/* Breadcrumb Navigation */}
           <nav className="mb-2 md:mb-4" aria-label="Breadcrumb">
