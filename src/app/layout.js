@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,6 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased max-w-[1920px] mx-auto`}>
+        <NextTopLoader
+          color="#AF8B18"
+          height={2}
+          showSpinner={false}
+        />
         {children}
       </body>
     </html>
