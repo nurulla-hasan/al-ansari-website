@@ -1,0 +1,38 @@
+
+{
+  "Navbar": {
+    "home": "Home",
+    "people": "People",
+    "sectors": "Sectors",
+    "insights": "Insights",
+    "about": "About",
+    "contact": "Contact",
+    "search": "Search...",
+    "english": "English",
+    "arabic": "عربي"
+  },
+  "Hero": {
+    "mainHeading": "YOUR TRUSTED LEGAL PARTNER TODAY AND ALWAYS",
+    "stats": {
+      "totalProBonoHours": "Total pro-bono hours",
+      "clients": "Clients",
+      "cases": "Cases"
+    }
+  },
+  "Latest News": {
+    "latestNews": "Latest News",
+    "services": "Services"
+  },
+  "Services": {
+    "title": "Services",
+    "description": "We offer practical, comprehensive, and cost-effective legal services.",
+    "contactUs": "Contact Us"
+  },
+  "Contact Us": {
+    "title": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "sendMessage": "Send Message"
+  }
+}

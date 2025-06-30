@@ -2,19 +2,21 @@
 import PageLayout from '@/components/layout/PageLayout';
 import { servicesItems } from '@/data/data';
 import { ArrowDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
 const Services = () => {
+    const t = useTranslations('Services');
     return (
         <PageLayout>
             <div className="py-16 md:py-24">
                 <div className='flex flex-col justify-center items-center text-center mb-10 md:mb-16'>
                     <h1 className="font-poltawski text-3xl md:text-4xl text-text-title font-bold">
-                        Services
+                        {t('title')}
                     </h1>
                     <p className="mt-4 text-sm md:text-lg text-text-muted max-w-2xl">
-                        We offer practical, comprehensive, and cost-effective legal services.
+                        {t('description')}
                     </p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -48,7 +50,7 @@ const Services = () => {
                     }
                 </div>
                 <div className='flex items-center flex-col gap-3 mt-8'>
-                    <h3 className='text-text-title'>Contact Us</h3>
+                    <h3 className='text-text-title'>{t("contactUs")}</h3>
                     <ArrowDown className='text-text-muted' size={26} />
                 </div>
             </div>

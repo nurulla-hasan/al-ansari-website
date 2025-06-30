@@ -9,26 +9,30 @@ import PageLayout from '@/components/layout/PageLayout'
 import { ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { newsItems } from '@/data/data'
 import Image from 'next/image'
+import { use } from 'react'
+import { useTranslations } from 'next-intl'
 
 
 const LatestNews = () => {
+    const t = useTranslations('Latest News')
     return (
         <div className="bg-bg-primary relative overflow-hidden">
             <SoftPatternColumns />
             <PageLayout>
                 <div className="text-center relative z-10 mb-5 md:mb-16">
-                    <h2 className="font-poltawski md:text-4xl text-2xl text-text-title font-bold">Latest News</h2>
+                    <h2 className="font-poltawski md:text-4xl text-2xl text-text-title font-bold">{t("latestNews")}</h2>
                 </div>
 
                 <div className="relative z-10 px-0 sm:px-12 md:px-16 lg:px-20 xl:px-24">
                     <Swiper
+                        className='!h-fit'
                         modules={[Navigation]}
                         spaceBetween={24}
                         slidesPerView={1}
                         navigation={{
                             prevEl: '.custom-prev-button',
                             nextEl: '.custom-next-button',
-                        }} 
+                        }}
                         breakpoints={{
                             640: { slidesPerView: 1.2 },
                             768: { slidesPerView: 2 },
@@ -58,7 +62,7 @@ const LatestNews = () => {
                     </Swiper>
 
                     <div className='flex items-center flex-col gap-3 mt-8'>
-                        <h3 className='text-text-title'>Services</h3>
+                        <h3 className='text-text-title'>{t("services")}</h3>
                         <ArrowDown className='text-text-muted' size={26} />
                     </div>
 

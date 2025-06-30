@@ -1,10 +1,12 @@
 "use client";
 import InputField from "@/components/helper/input-helper/InputField";
 import PageLayout from "@/components/layout/PageLayout";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useForm } from "react-hook-form"; 
 
 const ContactUs = () => {
+    const t = useTranslations("Contact Us");
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
@@ -29,15 +31,15 @@ const ContactUs = () => {
 
                     <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2">
                         <h2 className="font-poltawski text-3xl md:text-4xl text-text-title font-bold mb-6">
-                            Contact Us
+                            {t("title")}
                         </h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                             {/* Email Input */}
                             <InputField
-                                label="Email"
+                                label={t("email")}
                                 name="email"
                                 type="email"
-                                placeholder="Enter your email"
+                                placeholder={t("emailPlaceholder")}
                                 register={register}
                                 required={true}
                                 registerOptions={{
@@ -51,25 +53,25 @@ const ContactUs = () => {
 
                             {/* Phone Number Input */}
                             <InputField
-                                label="Phone Number"
+                                label={t("phone")}
                                 name="phone"
                                 type="tel"
-                                placeholder="Enter your phone number"
+                                placeholder={t("phonePlaceholder")}
                                 register={register}
                                 required={false}
                                 error={errors.phone}
                             />
                             <div>
-                                <label htmlFor="message" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Message
+                                <label htmlFor="message" className="block text-text-muted text-xs mb-2">
+                                    {t("message")}
                                 </label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows="5"
-                                    placeholder="Write here"
+                                    placeholder={t("messagePlaceholder")}
                                     {...register("message", { required: true, minLength: { value: 10, message: "Message must be at least 10 characters" } })}
-                                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-btn-bg focus:border-transparent transition-all duration-200 resize-y"
+                                    className="w-full px-4 py-3 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-btn-bg focus:border-transparent transition-all duration-200 resize-y"
                                 >
                                 </textarea>
                                 {errors.message && <p className="text-xs text-red-500 mt-0.5">{errors.message.message}</p>}
@@ -80,7 +82,7 @@ const ContactUs = () => {
                                 className="w-full sm:w-auto px-8 py-3 bg-btn-bg text-white text-sm font-medium rounded-md shadow-md
                                            transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                             >
-                                Send Message
+                                {t("sendMessage")}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5"

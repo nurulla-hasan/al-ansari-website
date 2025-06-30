@@ -1,18 +1,25 @@
-const Hero = () => {
+
+"use client"; 
+
+import { useTranslations } from "next-intl";
+
+const Hero = () => { 
+  const t = useTranslations('Hero'); 
+
   const stats = [
     {
       number: "20K",
-      label: "Total pro-bono hours",
+      labelKey: "totalProBonoHours",
     },
     {
       number: "3.8K+",
-      label: "Clients",
+      labelKey: "clients",
     },
     {
       number: "10k+",
-      label: "Cases",
+      labelKey: "cases",
     },
-  ]
+  ];
 
   return (
     <section className="relative min-h-[calc(100vh-88px)] flex items-center justify-center">
@@ -30,7 +37,7 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-16 sm:mb-20 lg:mb-24 leading-tight">
-          <i className="block font-poltawski">YOUR TRUSTED LEGAL PARTNER TODAY AND ALWAYS</i>
+          <i className="block font-poltawski">{t('mainHeading')}</i>
         </h1>
 
         {/* Statistics */}
@@ -40,13 +47,15 @@ const Hero = () => {
               <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#C9B164] mb-2 sm:mb-4">
                 {stat.number}
               </div>
-              <div className="text-sm sm:text-base lg:text-lg text-[#C9B164] font-medium">{stat.label}</div>
+              <div className="text-sm sm:text-base lg:text-lg text-[#C9B164] font-medium">
+                {t(`stats.${stat.labelKey}`)}
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

@@ -1,0 +1,41 @@
+
+{
+  "Navbar": {
+    "home": "الرئيسية",
+    "people": "الأشخاص",
+    "sectors": "القطاعات",
+    "insights": "الرؤى",
+    "about": "عنا",
+    "contact": "اتصل بنا",
+    "search": "بحث...",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "Hero": {
+    "mainHeading": "شريكك القانوني الموثوق اليوم ودائمًا",
+    "stats": {
+      "totalProBonoHours": "إجمالي ساعات العمل التطوعي",
+      "clients": "العملاء",
+      "cases": "القضايا"
+    }
+  },
+  "Latest News": {
+    "latestNews": "اخر الاخبار",
+    "services": "الخدمات"
+  },
+  "Services": {
+    "title": "الخدمات",
+    "description": "نقدم خدمات قانونية مميزة ومناسبة الحاجة",
+    "contactUs": "اتصل بنا"
+  },
+  "Contact Us": {
+    "title": "اتصل بنا",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "ادخل بريدك الالكتروني",
+    "phone": "هاتف",
+    "phonePlaceholder": "ادخل رقم هاتفك",
+    "message": "الرسالة",
+    "messagePlaceholder": "ادخل رسالتك",
+    "sendMessage": "إرسال الرسالة"
+  }
+}
