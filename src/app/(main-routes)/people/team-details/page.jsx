@@ -8,7 +8,7 @@ import SimpleHero from "@/components/shared/simple-hero/SimpleHero"
 import Link from "next/link"
 import { teamMembersData } from '@/data/data';
 
-const TeamDetailsPage = () => { 
+const TeamDetailsPage = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const [person, setPerson] = useState(null);
@@ -20,9 +20,6 @@ const TeamDetailsPage = () => {
             setPerson(foundPerson);
         }
     }, [id]);
-
-    const [activeTab, setActiveTab] = useState("Profile")
-    const tabs = ["Profile", "Experience", "Affiliation"]
 
     const handleShare = () => {
         if (navigator.share && person) {
@@ -69,7 +66,7 @@ const TeamDetailsPage = () => {
             <PageLayout>
                 {/* Top Section */}
                 <div className="bg-bg-primary p-8 rounded-xl mb-8">
-                    <div className="relative flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+                    <div className="relative flex flex-col md:flex-row gap-6 md:gap-10 items-center">
                         <div className="relative w-48 h-60 sm:w-64 sm:h-80 md:w-80 md:h-96 flex-shrink-0 rounded-2xl overflow-hidden bg-gray-200 -mt-10 sm:-mt-16 md:-mt-20">
                             <Image
                                 src={person.profileImage || "/placeholder.svg"}
@@ -101,119 +98,51 @@ const TeamDetailsPage = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div>
-                                <h3 className="text-lg font-semibold text-text-title mb-4">Follow</h3>
-                                <div className="flex gap-3">
-                                    {person.socialMedia && person.socialMedia.map((social, index) => (
-                                        <Link
-                                            key={social.platform || index}
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-8 h-8 border border-btn-bg rounded-full flex items-center justify-center hover:bg-btn-bg/40 transition-colors"
-                                        >
-                                            {getSocialIcon(social.platform)}
-                                        </Link>
-                                    ))}
-                                    <button
-                                        onClick={handleShare}
-                                        className="w-8 h-8 border border-btn-bg rounded-full flex items-center justify-center hover:bg-btn-bg/40 transition-colors cursor-pointer"
-                                    >
-                                        <Share2 className="w-4 h-4 text-btn-bg" />
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Section */}
-                {/* Tab Navigation */}
-                <div className="flex border-gray-200">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
-                            className={`rounded-t-sm py-2 px-8 font-medium transition-colors cursor-pointer text-sm ${activeTab === tab
-                                ? "text-yellow-600 bg-bg-primary"
-                                : "text-text-muted hover:text-text-title"
-                                }`}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
-
+                <h3 className='text-xl md:text-3xl font-medium text-text-title mb-4'>
+                    Profile Details
+                </h3>
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                     {/* Tab Content */}
                     <div className="lg:col-span-3 space-y-8 border-t border-gray-200 pt-6">
                         {/* Main Content */}
-                        <div className="lg:col-span-2">
-                            {activeTab === "Profile" && (
-                                <div className="space-y-6">
-                                    <p className="text-gray-700 leading-relaxed">{person.summary}</p>
-                                    {person.professionalExperience && person.professionalExperience.length > 0 && (
-                                        <div className="space-y-2">
-                                            <h4 className="text-md font-semibold text-text-title mt-4 mb-2">Professional Highlights</h4>
-                                            <ul className="list-disc list-inside text-gray-700">
-                                                {person.professionalExperience.map((exp, index) => (
-                                                    <li key={`prof-exp-${index}`} className="leading-relaxed">{exp}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                    {person.awards && person.awards.length > 0 && (
-                                        <div className="mt-6">
-                                            <h4 className="text-md font-semibold text-text-title mb-2">Awards & Recognition</h4>
-                                            <ul className="list-disc list-inside text-gray-700 space-y-1">
-                                                {person.awards.map((award, index) => (
-                                                    <li key={`profile-award-${index}`} className="text-sm">{award}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                    {person.practiceAreas && person.practiceAreas.length > 0 && (
-                                        <div className="mt-6">
-                                            <h4 className="text-md font-semibold text-text-title mb-2">Practice Areas</h4>
-                                            <div className="flex flex-wrap gap-2">
-                                                {person.practiceAreas.map((area, index) => (
-                                                    <span key={`profile-area-${index}`} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
-                                                        {area}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
+                        <div className="space-y-6">
+                            <p className="text-gray-700 leading-relaxed">{person.summary}</p>
+                            {person.professionalExperience && person.professionalExperience.length > 0 && (
+                                <div className="space-y-2">
+                                    <h4 className="text-md font-semibold text-text-title mt-4 mb-2">Professional Highlights</h4>
+                                    <ul className="list-disc list-inside text-gray-700">
+                                        {person.professionalExperience.map((exp, index) => (
+                                            <li key={`prof-exp-${index}`} className="leading-relaxed">{exp}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             )}
-                            {activeTab === "Experience" && (
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold text-text-title">Professional Experience</h3>
-                                    {person.professionalExperience && person.professionalExperience.length > 0 ? (
-                                        <ul className="list-disc list-inside text-gray-700 space-y-2">
-                                            {person.professionalExperience.map((exp, index) => (
-                                                <li key={`exp-${index}`} className="leading-relaxed">{exp}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <p className="text-gray-700">No professional experience details available.</p>
-                                    )}
+                            {person.awards && person.awards.length > 0 && (
+                                <div className="mt-6">
+                                    <h4 className="text-md font-semibold text-text-title mb-2">Awards & Recognition</h4>
+                                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                                        {person.awards.map((award, index) => (
+                                            <li key={`profile-award-${index}`} className="text-sm">{award}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             )}
-                            {activeTab === "Affiliation" && (
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-semibold text-text-title">Professional Affiliations</h3>
-                                    {person.affiliations && person.affiliations.length > 0 ? (
-                                        <ul className="list-disc list-inside text-gray-700 space-y-2">
-                                            {person.affiliations.map((aff, index) => (
-                                                <li key={`aff-${index}`} className="leading-relaxed">{aff}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <p className="text-gray-700">Information about professional affiliations and memberships is not available yet.</p>
-                                    )}
+                            {person.practiceAreas && person.practiceAreas.length > 0 && (
+                                <div className="mt-6">
+                                    <h4 className="text-md font-semibold text-text-title mb-2">Practice Areas</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {person.practiceAreas.map((area, index) => (
+                                            <span key={`profile-area-${index}`} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
+                                                {area}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
                         </div>
