@@ -6,7 +6,7 @@ import Link from "next/link";
 const Teams = ({ title, data }) => {
     return (
         <>
-            <h2 className='font-poltawski text-3xl md:text-4xl text-text-title font-bold mb-4'>{title}</h2>
+            <h2 className='font-poltawski text-center text-3xl md:text-4xl text-text-title font-bold mb-4'>{title}</h2>
             <div className='border-t border-gray-200 my-6'></div>
 
             <div className="flex flex-wrap justify-center gap-8">
