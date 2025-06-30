@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Search, Menu, X } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
-import PageLayout from "@/components/layout/PageLayout"
 
 const Navbar = () => {
     const pathname = usePathname()
@@ -55,7 +54,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="bg-white border-gray-100 relative z-50">
+        <nav className="bg-white z-[1100] sticky top-0 shadow-lg">
             {/* <PageLayout> */}
                 <div className="flex justify-between items-center max-w-7xl mx-auto px-3 py-3">
                     <div className="flex items-center justify-between lg:w-[40rem] w-full">

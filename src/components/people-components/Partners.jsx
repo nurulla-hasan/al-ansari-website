@@ -9,17 +9,16 @@ const Partners = ({ title, data }) => {
             <h2 className='font-poltawski text-3xl md:text-4xl text-text-title font-bold mb-4'>{title}</h2>
             <div className='border-t border-gray-200 my-6'></div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
                 {data.map((partner) => (
                     <article key={partner?._id} className="bg-white rounded-lg overflow-hidden">
                         <Link href={`/people/partner-details/?id=${partner?._id}`} className="block">
-                            <div className="relative w-full aspect-[5/6] rounded-2xl overflow-hidden bg-gray-200">
+                            <div className="relative w-48 h-60 rounded-2xl overflow-hidden bg-gray-200 sm:w-64 sm:h-80 md:w-[395px] md:h-[440px]">
                                 <Image
                                     src={partner?.profileImage || "/placeholder.svg"}
                                     alt={partner?.name || "Profile picture"}
                                     fill
                                     className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 {/* Role Badge */}
                                 <div className="absolute bottom-0 left-0 bg-btn-bg/80 text-white text-sm font-medium px-4 py-2 rounded-tr-lg">
