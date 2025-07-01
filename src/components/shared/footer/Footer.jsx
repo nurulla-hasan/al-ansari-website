@@ -2,9 +2,9 @@
 
 import { useForm } from "react-hook-form"
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
-import PageLayout from "@/components/layout/PageLayout"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslations } from "next-intl" 
 
 const Footer = () => {
     const {
@@ -14,36 +14,39 @@ const Footer = () => {
         reset,
     } = useForm()
 
+    const t = useTranslations('Footer')
+
     const onSubmit = (data) => {
         console.log("Newsletter subscription:", data.email)
         reset()
     }
 
+    // Link arrays: name will now be a translation key
     const informationLinks = [
-        { name: "About Us", href: "/about" },
-        { name: "Awards", href: "/awards" },
-        { name: "CSR", href: "/csr" },
-        { name: "Careers", href: "/careers" },
+        { key: "aboutUs", href: "/about" },
+        { key: "awards", href: "/about/awards" },
+        { key: "csr", href: "/about/csr" },
+        { key: "careers", href: "/careers" },
     ]
 
     const expertiseLinks = [
-        { name: "People", href: "/people" },
-        { name: "Sectors", href: "/sectors" },
-        { name: "Insights", href: "/insights" },
+        { key: "people", href: "/people" },
+        { key: "sectors", href: "/sectors" },
+        { key: "insights", href: "/insights" },
     ]
 
     const contactLinks = [
-        { name: "Latest News", href: "/news" },
-        { name: "Upcoming Events", href: "/events" },
-        { name: "Newsletters", href: "/newsletters" },
-        { name: "Contact", href: "/contact" },
+        { key: "latestNews", href: "/insights/updates" },
+        { key: "upcomingEvents", href: "/insights/events" },
+        { key: "newsletters", href: "/insights/newsletters" },
+        { key: "contact", href: "/contact" },
     ]
 
     const legalLinks = [
-        { name: "Terms & Conditions", href: "/terms" },
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Fraud Alert", href: "/fraud-alert" },
-        { name: "Disclaimer", href: "/disclaimer" },
+        { key: "termsAndConditions", href: "/terms" },
+        { key: "privacyPolicy", href: "/privacy" },
+        { key: "fraudAlert", href: "/fraud-alert" },
+        { key: "disclaimer", href: "/disclaimer" },
     ]
 
     return (
@@ -64,21 +67,23 @@ const Footer = () => {
                     <div className="max-w-7xl mx-auto ">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                             <div>
-                                <h3 className="text-2xl lg:text-4xl font-semibold text-white font-poltawski">Subscribe to our Newsletter</h3>
+                                <h3 className="text-2xl lg:text-4xl font-semibold text-white font-poltawski">
+                                    {t('newsletterHeading')}
+                                </h3>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto px-4 md:px-0">
                                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-4">
                                     <input
                                         {...register("email", { required: true })}
                                         type="email"
-                                        placeholder="Your email"
+                                        placeholder={t('emailPlaceholder')}
                                         className="px-4 py-3 rounded-md bg-gray-200 text-gray-800 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 w-full sm:w-80 transition-all duration-300"
                                     />
                                     <button
                                         type="submit"
                                         className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-md transition-colors whitespace-nowrap cursor-pointer"
                                     >
-                                        Subscribe
+                                        {t('subscribeButton')}
                                     </button>
                                 </form>
                             </div>
@@ -104,7 +109,9 @@ const Footer = () => {
                             </div>
 
                             <div>
-                                <h4 className="text-white text-sm text-center font-medium mb-4">Find Us On</h4>
+                                <h4 className="text-white text-sm text-center font-medium mb-4">
+                                    {t('findUsOn')}
+                                </h4>
                                 <div className="flex space-x-4">
                                     <Link
                                         href="#"
@@ -136,12 +143,14 @@ const Footer = () => {
 
                         {/* Information */}
                         <div className="px-5 md:px-0">
-                            <h4 className="text-white font-semibold text-lg mb-4">Information</h4>
+                            <h4 className="text-white font-semibold text-lg mb-4">
+                                {t('information')}
+                            </h4>
                             <ul className="space-y-3">
                                 {informationLinks.map((link) => (
-                                    <li key={link.name}>
+                                    <li key={link.key}>
                                         <Link href={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                                            {link.name}
+                                            {t(link.key)}
                                         </Link>
                                     </li>
                                 ))}
@@ -150,12 +159,14 @@ const Footer = () => {
 
                         {/* Our Expertise */}
                         <div className="px-5 md:px-0">
-                            <h4 className="text-white font-semibold text-lg mb-4">Our Expertise</h4>
+                            <h4 className="text-white font-semibold text-lg mb-4">
+                                {t('ourExpertise')}
+                            </h4>
                             <ul className="space-y-3">
                                 {expertiseLinks.map((link) => (
-                                    <li key={link.name}>
+                                    <li key={link.key}>
                                         <Link href={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                                            {link.name}
+                                            {t(link.key)}
                                         </Link>
                                     </li>
                                 ))}
@@ -164,12 +175,14 @@ const Footer = () => {
 
                         {/* Contact & Update */}
                         <div className="px-5 md:px-0">
-                            <h4 className="text-white font-semibold text-lg mb-4">Contact & Update</h4>
+                            <h4 className="text-white font-semibold text-lg mb-4">
+                                {t('contactAndUpdate')}
+                            </h4>
                             <ul className="space-y-3">
                                 {contactLinks.map((link) => (
-                                    <li key={link.name}>
+                                    <li key={link.key}>
                                         <Link href={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                                            {link.name}
+                                            {t(link.key)}
                                         </Link>
                                     </li>
                                 ))}
@@ -186,15 +199,17 @@ const Footer = () => {
                             <div className="flex flex-wrap gap-6">
                                 {legalLinks.map((link) => (
                                     <Link
-                                        key={link.name}
+                                        key={link.key}
                                         href={link.href}
                                         className="text-gray-400 hover:text-white text-sm transition-colors"
                                     >
-                                        {link.name}
+                                        {t(link.key)}
                                     </Link>
                                 ))}
                             </div>
-                            <div className="text-gray-400 text-sm">Copyright © 2025 Al-Ansari & Associates.</div>
+                            <div className="text-gray-400 text-sm">
+                                {t('copyright')}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,3 @@
-
 {
   "Navbar": {
     "home": "Home",
@@ -31,8 +30,37 @@
   "Contact Us": {
     "title": "Contact Us",
     "email": "Email",
+    "emailPlaceholder": "Enter your email",
     "phone": "Phone",
+    "phonePlaceholder": "Enter your phone number",
     "message": "Message",
+    "messagePlaceholder": "Enter your message",
     "sendMessage": "Send Message"
+  },
+  "Footer": {
+    "newsletterHeading": "Subscribe to our Newsletter",
+    "emailPlaceholder": "Your email",
+    "subscribeButton": "Subscribe",
+    "findUsOn": "Find Us On",
+    "information": "Information",
+    "aboutUs": "About Us",
+    "awards": "Awards",
+    "csr": "CSR",
+    "careers": "Careers",
+    "ourExpertise": "Our Expertise",
+    "people": "People",
+    "sectors": "Sectors",
+    "insights": "Insights",
+    "contactAndUpdate": "Contact & Update",
+    "latestNews": "Latest News",
+    "upcomingEvents": "Upcoming Events",
+    "newsletters": "Newsletters",
+    "contact": "Contact",
+    "legal": "Legal",
+    "termsAndConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "fraudAlert": "Fraud Alert",
+    "disclaimer": "Disclaimer",
+    "copyright": "Copyright © 2025 Al-Ansari & Associates."
   }
 }

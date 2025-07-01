@@ -1,4 +1,3 @@
-
 {
   "Navbar": {
     "home": "الرئيسية",
@@ -37,5 +36,31 @@
     "message": "الرسالة",
     "messagePlaceholder": "ادخل رسالتك",
     "sendMessage": "إرسال الرسالة"
+  },
+  "Footer": {
+    "newsletterHeading": "اشترك في نشرتنا الإخبارية",
+    "emailPlaceholder": "بريدك الإلكتروني",
+    "subscribeButton": "اشتراك",
+    "findUsOn": "تجدنا على",
+    "information": "معلومات",
+    "aboutUs": "من نحن",
+    "awards": "الجوائز",
+    "csr": "المسؤولية الاجتماعية للشركات",
+    "careers": "الوظائف",
+    "ourExpertise": "خبراتنا",
+    "people": "الأشخاص",
+    "sectors": "القطاعات",
+    "insights": "الرؤى",
+    "contactAndUpdate": "الاتصال والتحديثات",
+    "latestNews": "آخر الأخبار",
+    "upcomingEvents": "الفعاليات القادمة",
+    "newsletters": "النشرات الإخبارية",
+    "contact": "اتصل",
+    "legal": "قانوني",
+    "termsAndConditions": "الشروط والأحكام",
+    "privacyPolicy": "سياسة الخصوصية",
+    "fraudAlert": "تنبيه الاحتيال",
+    "disclaimer": "إخلاء المسؤولية",
+    "copyright": "حقوق النشر © 2025 الأنصاري وشركاه."
   }
 }
