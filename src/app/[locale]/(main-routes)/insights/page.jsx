@@ -4,19 +4,28 @@ import InsightsHeader from '@/components/insights-components/InsightsHeader';
 import PageLayout from '@/components/layout/PageLayout';
 import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
 import { eventsData, newsData, updateData } from '@/data/data';
+import { useTranslations } from 'next-intl';
 
-const page = () => {
+const InsightsPage = () => {
+    const tInsights = useTranslations('InsightsPage'); 
+    const tSimpleHero = useTranslations('SimpleHero'); 
+
+    const breadcrumbs = [
+        { name: 'home', href: "/" },
+        { name: 'insightsTitle', href: "/insights" } 
+    ];
+
     return (
         <div className='min-h-minus-header'>
             <SimpleHero
-                title="Insights"
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }]}
+                title="insightsTitle" 
+                breadcrumbs={breadcrumbs}
             />
 
             <PageLayout>
                 <div className='flex flex-col gap-12 md:gap-20'>
                     <div>
-                        <InsightsHeader title="Updates" link="/insights/updates" />
+                        <InsightsHeader title={tInsights('updatesSectionTitle')} link="/insights/updates" />
                         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8'>
                             {
                                 updateData.slice(0, 2).map((item) => (
@@ -26,7 +35,7 @@ const page = () => {
                         </div>
                     </div>
                     <div>
-                        <InsightsHeader title="Events" link="/insights/events" />
+                        <InsightsHeader title={tInsights('eventsSectionTitle')} link="/insights/events" />
                         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8'>
                             {
                                 eventsData.slice(0, 2).map((item) => (
@@ -36,7 +45,7 @@ const page = () => {
                         </div>
                     </div>
                     <div>
-                        <InsightsHeader title="Newsletters" link="/insights/newsletters" />
+                        <InsightsHeader title={tInsights('newslettersSectionTitle')} link="/insights/newsletters" />
                         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8'>
                             {
                                 newsData.slice(0, 2).map((item) => (
@@ -51,4 +60,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default InsightsPage;

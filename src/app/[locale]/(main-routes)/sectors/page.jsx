@@ -1,21 +1,33 @@
-"use client"
+"use client";
+
 import PageLayout from '@/components/layout/PageLayout';
 import SectorCard from '@/components/sectors-components/SectorCard';
 import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
 import { sectorsData } from '@/data/data';
+import { useTranslations } from 'next-intl';
 
 const Sectors = () => {
+    const tSectors = useTranslations('SectorsPage');
+
+    const breadcrumbs = [
+        { name: 'home', href: "/" },
+        { name: 'sectorsTitle', href: "/sectors" } 
+    ];
+
     return (
         <div className='min-h-minus-header'>
             <SimpleHero
-                title="Sectors"
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "Sectors", href: "/sectors" }]}
+                title="sectorsTitle"
+                breadcrumbs={breadcrumbs}
             />
 
             <PageLayout>
                 <div>
                     <h3 className='text-text-muted'>
-                        <span className='text-text-title font-semibold'>Al-Ansari & Associates</span> offers legal services across various sectors. Discover why we're the right strategic partner for your business in Qatar.
+                        <span className='text-text-title font-semibold'>
+                            {tSectors('mainHeadingPart1')}
+                        </span>{' '}
+                        {tSectors('mainHeadingPart2')}
                     </h3>
                     <div className='border-t border-gray-200 mt-3'></div>
 
@@ -26,7 +38,7 @@ const Sectors = () => {
                                     <SectorCard key={sector._id} sector={sector} />
                                 ))
                             ) : (
-                                <p>No sectors available</p>
+                                <p>{tSectors('noSectorsAvailable')}</p>
                             )}
                     </div>
                 </div>

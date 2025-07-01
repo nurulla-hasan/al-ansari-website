@@ -2,19 +2,20 @@
 import PageLayout from "@/components/layout/PageLayout";
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
 import { csrData } from "@/data/data";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-const CsrDetails = ({ params }) => {
+const CsrDetails = async  ({ params }) => {
+    const tCsrDetailsPage = await getTranslations('CsrDetailsPage');
 
-    const { id } = params;
-    console.log(id);
 
-    const item = csrData.find((item) => item.id === id);
+    const id = (await params).id;
+    const item = csrData.find((dataItem) => dataItem.id === id); 
 
     if (!item) {
         return (
             <div className="min-h-minus-header flex items-center justify-center">
-                <p className="text-lg text-red-500">Csr not found!</p>
+                <p className="text-lg text-red-500">{tCsrDetailsPage('notFound')}</p> 
             </div>
         );
     }
@@ -22,12 +23,12 @@ const CsrDetails = ({ params }) => {
     return (
         <div>
             <SimpleHero
-                title={item?.title}
+                title="detailsTitle" 
                 breadcrumbs={[
-                    { name: "Home", href: "/" },
-                    { name: "About", href: "/about" },
-                    { name: "CSR", href: "/about/csr" },
-                    { name: "Details", href: `/about/csr/${item?.id}` }
+                    { name: "home", href: "/" }, 
+                    { name: "aboutUsTitle", href: "/about" },
+                    { name: "csrTitle", href: "/about/csr" }, 
+                    { name: "detailsTitle", href: `/about/csr/${item?.id}` } 
                 ]}
             />
             <PageLayout>
@@ -38,7 +39,7 @@ const CsrDetails = ({ params }) => {
                 <div className="relative w-full aspect-[16/5] rounded-xl overflow-hidden mb-8">
                     <Image
                         src={item?.imageSrc}
-                        alt={item?.title}
+                        alt={item?.title || tCsrDetailsPage('notFound')}
                         fill
                         className="object-cover"
                         priority

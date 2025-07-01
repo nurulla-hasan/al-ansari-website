@@ -62,5 +62,58 @@
     "fraudAlert": "تنبيه الاحتيال",
     "disclaimer": "إخلاء المسؤولية",
     "copyright": "حقوق النشر © 2025 الأنصاري وشركاه."
+  },
+  "SimpleHero": {
+    "home": "الرئيسية",
+    "pageTitleDefault": "عنوان الصفحة",
+    "aboutUsTitle": "من نحن",
+    "careersTitle": "الوظائف",
+    "contactTitle": "اتصل بنا",
+    "sectorsTitle": "قطاعاتنا",
+    "peopleTitle": "فريقنا",
+    "insightsTitle": "الرؤى",
+    "awardsTitle": "الجوائز",
+    "csrTitle": "المسؤولية الاجتماعية للشركات",
+    "detailsTitle": "التفاصيل"
+  },
+  "PeoplePage": {
+    "pageTitle": "فريقنا",
+    "partnersSectionTitle": "الشركاء",
+    "teamSectionTitle": "فريقنا"
+  },
+  "SectorsPage": {
+    "heroTitle": "القطاعات",
+    "mainHeadingPart1": "الأنصاري وشركاه",
+    "mainHeadingPart2": " تقدم خدمات قانونية عبر قطاعات مختلفة. اكتشف لماذا نحن الشريك الاستراتيجي المناسب لعملك في قطر",
+    "noSectorsAvailable": "لا توجد قطاعات متاحة"
+  },
+  "InsightsPage": {
+    "heroTitle": "الرؤى",
+    "updatesSectionTitle": "التحديثات",
+    "eventsSectionTitle": "الفعاليات",
+    "newslettersSectionTitle": "النشرات الإخبارية"
+  },
+  "AboutPage": { 
+    "aboutUsTitle": "من نحن",
+    "headerTitle": "قيمنا",
+    "headerDescription": "ابق على اطلاع بآخر خدماتنا القانونية وتحديثات الصناعة وأحداث الشركة البارزة",
+    "awardsTitle": "الجوائز",
+    "csrTitle": "المسؤولية الاجتماعية للشركات"
+  },
+  "CsrDetailsPage": {
+    "notFound": "المسؤولية الاجتماعية للشركات غير موجودة!",
+    "detailsPageTitle": "التفاصيل"
+  },
+  "ContactPage": {
+    "heroTitle": "اتصل بنا"
+  },
+  "ContactInfoPage": {
+    "contactInfoTitle": "معلومات الاتصال",
+    "contactInfoDescription": "تواصل مع فريقنا للحصول على الدعم القانوني أو الاستفسارات أو مواعيد الاستشارة.",
+    "locationHeading": "الموقع:",
+    "emailHeading": "البريد الإلكتروني:",
+    "phoneHeading": "الهاتف:",
+    "officeHoursHeading": "ساعات العمل:",
+    "loadingMap": "جارٍ تحميل الخريطة..."
   }
 }

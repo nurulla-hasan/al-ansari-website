@@ -2,21 +2,22 @@
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Mail, Phone, Clock } from "lucide-react"
 import PageLayout from "../layout/PageLayout";
-import { contactData } from "@/data/data";
 import dynamic from "next/dynamic"
-
-// Dynamically import the map component with no SSR
-const MapComponent = dynamic(() => import("./MapComponent"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-96 lg:h-full min-h-[400px] rounded-lg bg-gray-200 flex items-center justify-center">
-      <p className="text-gray-500">Loading map...</p>
-    </div>
-  ),
-})
-
+import { useTranslations } from 'next-intl';
+import { contactData } from '@/data/data';
 
 const ContactInfo = () => {
+    const tContactInfoPage = useTranslations('ContactInfoPage');
+
+    const MapComponent = dynamic(() => import("./MapComponent"), {
+        ssr: false,
+        loading: () => (
+            <div className="w-full h-96 lg:h-full min-h-[400px] rounded-lg bg-gray-200 flex items-center justify-center">
+                <p className="text-gray-500">{tContactInfoPage('loadingMap')}</p>
+            </div>
+        ),
+    });
+
     return (
         <PageLayout>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -24,9 +25,9 @@ const ContactInfo = () => {
                 <div className="space-y-8">
                     {/* Header */}
                     <div>
-                        <h2 className="font-poltawski text-3xl md:text-4xl text-text-title font-bold mb-6">Contact Info</h2>
+                        <h2 className="font-poltawski text-3xl md:text-4xl text-text-title font-bold mb-6">{tContactInfoPage('contactInfoTitle')}</h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            Get in touch with our team for legal support, inquiries, or consultation appointments.
+                            {tContactInfoPage('contactInfoDescription')}
                         </p>
                     </div>
 
@@ -38,8 +39,8 @@ const ContactInfo = () => {
                                 <MapPin className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Location:</h3>
-                                <p className="text-gray-600 leading-relaxed">{contactData.location}</p>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{tContactInfoPage('locationHeading')}</h3>
+                                <p className="text-gray-600 leading-relaxed">{contactData?.location}</p>
                             </div>
                         </div>
 
@@ -49,12 +50,12 @@ const ContactInfo = () => {
                                 <Mail className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Email:</h3>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{tContactInfoPage('emailHeading')}</h3>
                                 <a
-                                    href={`mailto:${contactData.email}`}
+                                    href={`mailto:${contactData?.email}`}
                                     className="text-gray-600 hover:text-btnbg-btn-bg transition-colors"
                                 >
-                                    {contactData.email}
+                                    {contactData?.email}
                                 </a>
                             </div>
                         </div>
@@ -65,12 +66,12 @@ const ContactInfo = () => {
                                 <Phone className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Phone:</h3>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{tContactInfoPage('phoneHeading')}</h3>
                                 <a
-                                    href={`tel:${contactData.phone}`}
+                                    href={`tel:${contactData?.phone}`}
                                     className="text-gray-600 hover:text-btnbg-btn-bg transition-colors"
                                 >
-                                    {contactData.phone}
+                                    {contactData?.phone}
                                 </a>
                             </div>
                         </div>
@@ -81,8 +82,8 @@ const ContactInfo = () => {
                                 <Clock className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-800 mb-2">Office Hours:</h3>
-                                <p className="text-gray-600">{contactData.officeHours}</p>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-2">{tContactInfoPage('officeHoursHeading')}</h3>
+                                <p className="text-gray-600">{contactData?.officeHours}</p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +93,6 @@ const ContactInfo = () => {
                 <div className="w-full h-96 lg:h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg">
                     <MapComponent />
                 </div>
-
             </div>
         </PageLayout>
     );

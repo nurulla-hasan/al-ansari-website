@@ -62,5 +62,58 @@
     "fraudAlert": "Fraud Alert",
     "disclaimer": "Disclaimer",
     "copyright": "Copyright © 2025 Al-Ansari & Associates."
+  },
+  "SimpleHero": {
+    "home": "Home",
+    "pageTitleDefault": "Page Title",
+    "aboutUsTitle": "About Us",
+    "careersTitle": "Careers",
+    "contactTitle": "Contact Us",
+    "sectorsTitle": "Sectors",
+    "peopleTitle": "People",
+    "insightsTitle": "Insights",
+    "awardsTitle": "Awards",
+    "csrTitle": "CSR",
+    "detailsTitle": "Details"
+  },
+  "PeoplePage": {
+    "pageTitle": "Our People",
+    "partnersSectionTitle": "Partners",
+    "teamSectionTitle": "Our Team"
+  },
+  "SectorsPage": {
+    "heroTitle": "Sectors",
+    "mainHeadingPart1": "Al-Ansari & Associates",
+    "mainHeadingPart2": " offers legal services across various sectors. Discover why we're the right strategic partner for your business in Qatar.",
+    "noSectorsAvailable": "No sectors available"
+  },
+  "InsightsPage": {
+    "heroTitle": "Insights",
+    "updatesSectionTitle": "Updates",
+    "eventsSectionTitle": "Events",
+    "newslettersSectionTitle": "Newsletters"
+  },
+  "AboutPage": { 
+    "aboutUsTitle": "About Us",
+    "headerTitle": "Our Values",
+    "headerDescription": "Stay informed with our latest legal services, industry updates, and notable firm events.",
+    "awardsTitle": "Awards",
+    "csrTitle": "CSR"
+  },
+  "CsrDetailsPage": { 
+    "notFound": "CSR not found!",
+    "detailsPageTitle": "Details"
+  },
+  "ContactPage": { 
+    "heroTitle": "Contact Us"
+  },
+  "ContactInfoPage": { 
+    "contactInfoTitle": "Contact Info",
+    "contactInfoDescription": "Get in touch with our team for legal support, inquiries, or consultation appointments.",
+    "locationHeading": "Location:",
+    "emailHeading": "Email:",
+    "phoneHeading": "Phone:",
+    "officeHoursHeading": "Office Hours:",
+    "loadingMap": "Loading map..."
   }
 }

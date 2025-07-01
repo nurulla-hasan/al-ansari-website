@@ -6,12 +6,19 @@ import PageLayout from "@/components/layout/PageLayout";
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
 import { awardsData } from "@/data/data";
 
-const page = () => {
+const AwardsPage = () => {
+
+    const breadcrumbs = [
+        { name: 'home', href: "/" }, 
+        { name: 'aboutUsTitle', href: "/about" }, 
+        { name: 'awardsTitle', href: "/about/awards" }
+    ];
+
     return (
         <div className="min-h-minus-header">
             <SimpleHero
-                title="Awards"
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "About", href: "/about" }, { name: "Awards", href: "/about/awards" }]}
+                title="awardsTitle"
+                breadcrumbs={breadcrumbs}
                 children={<AboutPageButtons />}
             />
             <PageLayout>
@@ -28,4 +35,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default AwardsPage;
