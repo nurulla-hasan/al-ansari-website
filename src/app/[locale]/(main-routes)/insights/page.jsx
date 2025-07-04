@@ -7,18 +7,19 @@ import { eventsData, newsData, updateData } from '@/data/data';
 import { useTranslations } from 'next-intl';
 
 const InsightsPage = () => {
-    const tInsights = useTranslations('InsightsPage'); 
-    const tSimpleHero = useTranslations('SimpleHero'); 
+    const tInsights = useTranslations('InsightsPage');
+    const tNavbar = useTranslations('Navbar');
+    const tSimpleHero = useTranslations('SimpleHero');
 
     const breadcrumbs = [
-        { name: 'home', href: "/" },
-        { name: 'insightsTitle', href: "/insights" } 
+        { name: tNavbar('home'), href: "/" },
+        { name: tSimpleHero('insightsTitle'), href: "/insights" } 
     ];
 
     return (
         <div className='min-h-minus-header'>
             <SimpleHero
-                title="insightsTitle" 
+                title={tSimpleHero('insightsTitle')}
                 breadcrumbs={breadcrumbs}
             />
 

@@ -1,19 +1,21 @@
-"use client"
+"use client";
+
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from "react" 
 import Image from "next/image"
 import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Share2 } from "lucide-react"
 import PageLayout from "@/components/layout/PageLayout"
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero"
-import Link from "next/link"
 import { partnersData } from '@/data/data';
+import { useTranslations } from 'next-intl';
 
-// This component will contain the client-side logic and useSearchParams
 const PartnerDetailsContent = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const [person, setPerson] = useState(null);
-    console.log(person);
+
+    const tNavbar = useTranslations('Navbar');
+    const tSimpleHero = useTranslations('SimpleHero');
 
     useEffect(() => {
         if (id) {
@@ -55,15 +57,18 @@ const PartnerDetailsContent = () => {
 
 
     if (!person) {
-        // You can return a more specific loading state here
         return <div>Loading partner details...</div>;
     }
 
     return (
         <>
             <SimpleHero
-                title="People"
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "People", href: "/people" }, { name: "People Details", href: `/people/details?id=${person._id}` }]}
+                title={tSimpleHero('detailsTitle')}
+                breadcrumbs={[
+                    { name: tNavbar('home'), href: "/" },
+                    { name: tSimpleHero('peopleTitle'), href: "/people" }, 
+                    { name: tSimpleHero('peopleDetailsTitle'), href: `/people/details?id=${person._id}` }
+                ]}
             />
             <PageLayout>
                 {/* Top Section */}

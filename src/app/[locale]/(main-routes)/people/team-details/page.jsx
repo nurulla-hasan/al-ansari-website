@@ -7,12 +7,15 @@ import PageLayout from "@/components/layout/PageLayout"
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero"
 import Link from "next/link"
 import { teamMembersData } from '@/data/data';
+import { useTranslations } from 'next-intl';
 
 const TeamDetailsPage = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const [person, setPerson] = useState(null);
-    console.log(person);
+
+    const tNavbar = useTranslations('Navbar');
+    const tSimpleHero = useTranslations('SimpleHero');
 
     useEffect(() => {
         if (id) {
@@ -60,8 +63,12 @@ const TeamDetailsPage = () => {
     return (
         <>
             <SimpleHero
-                title="People"
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "People", href: "/people" }, { name: "People Details", href: `/people/details?id=${person._id}` }]}
+                title={tSimpleHero('detailsTitle')}
+                breadcrumbs={[
+                    { name: tNavbar('home'), href: "/" },
+                    { name: tSimpleHero('peopleTitle'), href: "/people" },
+                    { name: tSimpleHero('peopleDetailsTitle'), href: `/people/details?id=${person._id}` }
+                ]}
             />
             <PageLayout>
                 {/* Top Section */}

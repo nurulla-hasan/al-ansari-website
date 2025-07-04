@@ -9,17 +9,18 @@ import SimpleHero from '@/components/shared/simple-hero/SimpleHero';
 import { useTranslations } from 'next-intl';
 
 const AboutPage = () => { 
-    const t = useTranslations('SimpleHero'); 
+    const tSimpleHero = useTranslations('SimpleHero'); 
+    const tNavbar = useTranslations('Navbar'); 
 
     const breadcrumbs = [
-        { name: 'home', href: "/" }, 
-        { name: 'aboutUsTitle', href: "/about" }, 
+        { name: tNavbar('home'), href: "/" },
+        { name: tSimpleHero('aboutUsTitle'), href: "/about" }, 
     ];
 
     return (
         <div className='min-h-minus-header'>
             <SimpleHero
-                title="aboutUsTitle"
+                title={tSimpleHero('aboutUsTitle')}
                 breadcrumbs={breadcrumbs}
             >
                 <AboutPageButtons />

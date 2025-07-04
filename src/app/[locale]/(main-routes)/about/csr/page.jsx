@@ -5,19 +5,22 @@ import CsrCard from "@/components/about-components/csr-components/CsrCard";
 import PageLayout from "@/components/layout/PageLayout";
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
 import { csrData } from "@/data/data";
+import { useTranslations } from "next-intl";
 
 const CsrPage = () => {
+    const tSimpleHero = useTranslations('SimpleHero'); 
+    const tNavbar = useTranslations('Navbar'); 
 
     const breadcrumbs = [
-        { name: 'home', href: "/" },
-        { name: 'aboutUsTitle', href: "/about" }, 
-        { name: 'csrTitle', href: "/about/csr" }
+        { name: tNavbar('home'), href: "/" }, 
+        { name: tSimpleHero('aboutUsTitle'), href: "/about" }, 
+        { name: tSimpleHero('csrTitle'), href: "/about/csr" }
     ];
 
     return (
         <div className="min-h-minus-header">
             <SimpleHero
-                title="csrTitle"
+                title={tSimpleHero('csrTitle')}
                 breadcrumbs={breadcrumbs}
                 children={<AboutPageButtons />}
             />

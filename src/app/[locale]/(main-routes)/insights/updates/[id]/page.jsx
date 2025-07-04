@@ -1,26 +1,41 @@
+"use client"; 
+
 import Image from "next/image";
 import { updateData } from "@/data/data";
 import SimpleHero from "@/components/shared/simple-hero/SimpleHero";
 import PageLayout from "@/components/layout/PageLayout";
+import { useTranslations } from "next-intl"; 
+import React from "react";
 
 export default function UpdateDetails({ params }) {
-    const { id } = params;
+    const tUpdatesPage = useTranslations('UpdatesPage');
+    const tNavbar = useTranslations('Navbar');
+    const tSimpleHero = useTranslations('SimpleHero');
+
+    const { id } = React.use(params); 
 
     const item = updateData.find((item) => item._id === id);
 
     if (!item) {
         return (
             <div className="min-h-minus-header flex items-center justify-center">
-                <p className="text-lg text-red-500">Update not found!</p>
+                <p className="text-lg text-red-500">{tUpdatesPage('updateNotFound')}</p>
             </div>
         );
     }
 
+    const breadcrumbs = [
+        { name: tNavbar('home'), href: "/" }, 
+        { name: tSimpleHero('insightsTitle'), href: "/insights" }, 
+        { name: tSimpleHero('updatesTitle'), href: "/insights/updates" }, 
+        { name: tSimpleHero('detailsTitle'), href: `/insights/updates/${item._id}` } 
+    ];
+
     return (
         <div>
             <SimpleHero
-                title={item?.title}
-                breadcrumbs={[{ name: "Home", href: "/" }, { name: "Insights", href: "/insights" }, { name: "Updates", href: "/insights/updates" }, { name: "Details", href: `/insights/updates/${item._id}` }]}
+                title={tSimpleHero("detailsTitle")}
+                breadcrumbs={breadcrumbs}
             />
             <PageLayout>
                 <p className="text-lg md:text-2xl text-text-muted mb-2 md:mb-4">{item.date}</p>

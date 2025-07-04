@@ -2,21 +2,15 @@
 
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl"; 
 
 const SimpleHero = ({
   title = "pageTitleDefault",
   breadcrumbs = [{ name: "home", href: "/" }],
   children,
 }) => {
-  const t = useTranslations('SimpleHero');
-  const displayTitle = t(title, { defaultValue: title });
-
-  // Translate breadcrumbs dynamically
-  const translatedBreadcrumbs = breadcrumbs.map((crumb) => ({
-    ...crumb,
-    name: t(crumb.name, { defaultValue: crumb.name }),
-  }));
+  const tSimpleHero = useTranslations('SimpleHero');
+  const displayTitle = (title === "pageTitleDefault") ? tSimpleHero('pageTitleDefault') : title;
 
   return (
     <section className="relative h-30 sm:h-60 flex items-center">
@@ -36,10 +30,10 @@ const SimpleHero = ({
           {/* Breadcrumb Navigation */}
           <nav className="mb-2 md:mb-4" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-white text-sm">
-              {translatedBreadcrumbs.map((crumb, index) => (
+              {breadcrumbs.map((crumb, index) => (
                 <li key={index} className="flex items-center">
                   {index > 0 && <ChevronRight className="w-4 h-4 mx-2 text-gray-300" />}
-                  {index === translatedBreadcrumbs.length - 1 ? (
+                  {index === breadcrumbs.length - 1 ? (
                     <span className="text-gray-300">{crumb.name}</span>
                   ) : (
                     <Link href={crumb.href} className="hover:text-gray-300 transition-colors">

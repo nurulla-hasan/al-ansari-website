@@ -8,16 +8,18 @@ import { useTranslations } from 'next-intl';
 
 const Sectors = () => {
     const tSectors = useTranslations('SectorsPage');
+    const tNavbar = useTranslations('Navbar');
+    const tSimpleHero = useTranslations('SimpleHero');
 
     const breadcrumbs = [
-        { name: 'home', href: "/" },
-        { name: 'sectorsTitle', href: "/sectors" } 
+        { name: tNavbar('home'), href: "/" },
+        { name: tSimpleHero('sectorsTitle'), href: "/sectors" }
     ];
 
     return (
         <div className='min-h-minus-header'>
             <SimpleHero
-                title="sectorsTitle"
+                title={tSimpleHero('sectorsTitle')}
                 breadcrumbs={breadcrumbs}
             />
 
