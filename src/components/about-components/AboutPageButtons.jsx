@@ -1,55 +1,59 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react"; 
+import { Link as NextIntlLink } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { useState, useEffect } from "react";
 
 const AboutPageButtons = () => {
-    const [activeButton, setActiveButton] = useState("");
+    const t = useTranslations('AboutPage');
+    const [activeButton, setActiveButton] = useState("aboutUsTitle");
 
     useEffect(() => {
         const path = window.location.pathname;
         if (path.includes("/awards")) {
-            setActiveButton("Awards");
+            setActiveButton("awardsTitle");
         } else if (path.includes("/csr")) {
-            setActiveButton("CSR");
+            setActiveButton("csrTitle");
         } else {
-            setActiveButton("About Us"); 
+            setActiveButton("aboutUsTitle");
         }
     }, []);
 
-    const buttonClass = (buttonName) => `
+    const buttonClass = (buttonKey) => `
         md:px-4 md:py-2 px-2 py-1 rounded-md font-medium md:text-sm text-xs transition-colors duration-200 cursor-pointer backdrop-blur-sm
-        ${activeButton === buttonName
+        ${activeButton === buttonKey
             ? "bg-btn-bg text-white"
             : "bg-transparent text-btn-bg border border-btn-bg"
         }
     `;
 
+    const buttons = [
+        {
+            href: "/about",
+            key: "aboutUsTitle"
+        },
+        {
+            href: "/about/awards",
+            key: "awardsTitle"
+        },
+        {
+            href: "/about/csr",
+            key: "csrTitle"
+        }
+    ]
+
     return (
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
-            <Link
-                href="/about"
-                className={buttonClass("About Us")}
-                onClick={() => setActiveButton("About Us")}
-            >
-                About Us
-            </Link>
-
-            <Link
-                href="/about/awards"
-                className={buttonClass("Awards")}
-                onClick={() => setActiveButton("Awards")}
-            >
-                Awards
-            </Link>
-
-            <Link
-                href="/about/csr"
-                className={buttonClass("CSR")}
-                onClick={() => setActiveButton("CSR")}
-            >
-                CSR
-            </Link>
+            {buttons.map((button) => (
+                <NextIntlLink
+                    key={button.key}
+                    href={button.href}
+                    className={buttonClass(button.key)}
+                    onClick={() => setActiveButton(button.key)}
+                >
+                    {t(button.key)}
+                </NextIntlLink>
+            ))}
         </div>
     );
 };

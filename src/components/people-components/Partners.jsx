@@ -18,6 +18,7 @@ const Partners = ({ title, data }) => {
                                     src={partner?.profileImage || "/placeholder.svg"}
                                     alt={partner?.name || "Profile picture"}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover"
                                 />
                                 {/* Role Badge */}

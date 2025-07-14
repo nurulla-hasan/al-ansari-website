@@ -105,6 +105,7 @@ const Footer = () => {
                                     className="object-cover"
                                     width={150}
                                     height={150}
+                                    style={{ width: 'auto', height: 'auto' }}
                                 />
                             </div>
 

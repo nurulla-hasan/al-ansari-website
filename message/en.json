@@ -125,7 +125,13 @@
     "headerTitle": "Our Values",
     "headerDescription": "Stay informed with our latest legal services, industry updates, and notable firm events.",
     "awardsTitle": "Awards",
-    "csrTitle": "CSR"
+    "csrTitle": "CSR",
+    "legalPracticeTitle": "Legal Practice",
+    "legalPracticeDescription": "Our practice is underpinned by a deep understanding of local laws and of the sectors in which our clients operate. We provide expert counsel and innovative solutions to complex issues.",
+    "clientFocusTitle": "Client Focus",
+    "clientFocusDescription": "We pride ourselves on providing efficient, responsive and courteous service. We add value for our clients by providing training and information to support their business in the region.",
+    "highestLevelTitle": "Highest Level",
+    "highestLevelDescription": "We are proud to offer legal services and expertise with international standards. Our core strength is the diversity and experience of our legal professionals with commitment to the highest standards."
   },
   "CsrDetailsPage": {
     "notFound": "CSR not found!",
