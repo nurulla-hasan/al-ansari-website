@@ -60,7 +60,7 @@ const Navbar = () => {
     return (
         <nav className="bg-white z-[1100] sticky top-0 shadow-lg">
             {/* <PageLayout> */}
-            <div className="flex justify-between items-center max-w-7xl mx-auto px-3 py-3">
+            <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-3">
                 <div className="flex items-center justify-between lg:w-[40rem] w-full">
                     {/* Logo & Mobile Menu Toggle */}
                     <div className="flex items-center justify-between w-full lg:w-auto">

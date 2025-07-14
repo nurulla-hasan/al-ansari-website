@@ -3,12 +3,18 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import NextTopLoader from 'nextjs-toploader';
-import { Poppins } from 'next/font/google';
+import { Poppins, Poltawski_Nowy } from 'next/font/google';
+
+const poltawski = Poltawski_Nowy({
+  variable: "--font-poltawski",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600"],
   variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -24,8 +30,12 @@ export default async function Locallayout({ children, params }) {
 
   return (
     <html lang={locale}>
-      <body className={`${poppins.variable} antialiased max-w-[1920px] mx-auto`}>
-         <NextTopLoader
+      <body className={`
+          ${poppins.variable}
+          ${poltawski.variable}
+          antialiased container mx-auto max-w-[1920px]
+        `}>
+        <NextTopLoader
           color="#AF8B18"
           height={2}
           showSpinner={false}
